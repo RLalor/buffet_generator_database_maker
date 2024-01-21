@@ -20,14 +20,14 @@ program_running = True
 
 def load_from_file(filename):
     try:
-        with open(filename, 'r+') as file:
+        with open(filename, 'r') as file:
             return json.load(file)
     except FileNotFoundError:
         return {}
 
 
 def save_to_file(themes_dict, filename):
-    with open(filename, 'a+') as file:
+    with open(filename, 'w') as file:
         json.dump(themes_dict, file)
 
 
