@@ -71,7 +71,7 @@ def cat_handler():
             print(f"{cat_name} exists")
             print('\n')
     if meat_check == 'no':
-        while cat_name not in ['seafood', 'carb', 'veg']:
+        while cat_name not in ['seafood', 'carb', 'dessert', 'breakfast', 'extras', 'veg']:
             print(f'{cat_name} is an INVALID CHOICE!')
             print('\n')
             cat_name = input("Enter the CATEGORY or MEAT >>> ").lower()
@@ -104,7 +104,7 @@ def dish_handler():
             print('\n')
 
 
-load_check = input('Do you want to load an existing database from an earlier session (YES / NO)? >>> ')
+load_check = input('Do you want to load an existing database from an earlier session (YES / NO)? >>> ').lower()
 print('\n')
 if load_check == 'yes':
     themes_dict = load_from_file(filename)
@@ -119,7 +119,7 @@ while program_running:
     theme_handler()
     cat_name = input("Enter the CATEGORY or MEAT >>> ").lower()
     print('\n')
-    meat_check = input("Is this a meat category? YES or NO? >>> ")
+    meat_check = input("Is this a meat category? YES or NO? >>> ").lower()
     print('\n')
     cat_handler()
     dish_name = input("Enter the DISH name >>> ").lower()
@@ -127,3 +127,8 @@ while program_running:
     dish_handler()
     pprint(themes_dict, width=10)
     print('\n')
+
+#  todo don't show meat choice if a known category is entered
+# todo backup to 2nd location
+# todo test what happens if a non-letter or number is input
+# can call it Whats for dinner or whats cookinyes
